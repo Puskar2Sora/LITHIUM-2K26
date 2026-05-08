@@ -1,19 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-
-/**
- * Lithium 2K26 — Intro Animation
- *
- * Parchment background (#C9C0B3). Full "LITHIUM 2K 26" wordmark drawn
- * stroke-by-stroke using SVG stroke-dashoffset, centered in the viewport.
- * Screen fades out after all strokes complete.
- *
- * Usage:
- *   <Intro onComplete={() => setShowMain(true)} />
- *
- * Props:
- *   onComplete?: () => void   — fires after animation is fully done
- *   duration?:   number (ms)  — total time before onComplete (default: 11500)
- */
+import Floatchar from "../components/Floatchar";
+import "../styles/Intro.css";
 export default function Intro({ onComplete, duration = 6000 }) {
   const [phase, setPhase] = useState("drawing"); // "drawing" | "hold" | "fading" | "done"
 
@@ -24,12 +11,9 @@ export default function Intro({ onComplete, duration = 6000 }) {
       setPhase("done");
       onComplete?.();
     }, duration);
-
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [onComplete, duration]);
-
   if (phase === "done") return null;
-
   return (
     <>
       <style>{`
@@ -53,27 +37,12 @@ export default function Intro({ onComplete, duration = 6000 }) {
           willChange:     "opacity",
         }}
       >
+        
         <LithiumWordmark animate={phase === "drawing"} />
       </div>
     </>
   );
 }
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   LithiumWordmark
-   ViewBox: 720 × 120. Full "LITHIUM 2K 26" centered as one block.
-
-   Letter x positions (each ~55px wide, 8px gap):
-     L=38  I=99  T=147  H=196+244  I=269  U=300+352  M=372+440
-     [gap 22px]
-     2=466  K=514
-     [gap 16px]
-     2r=566  6r=616+652
-
-   Drawing order per letter: top serifs → stem → crossbar → bottom serifs
-   LITHIUM 2K = charcoal #2A211A
-   26         = crimson  #8B2525
-───────────────────────────────────────────────────────────────────────────── */
 function LithiumWordmark({ animate }) {
   const dark = "#2A211A";
   const red  = "#8B2525";
@@ -135,7 +104,6 @@ function LithiumWordmark({ animate }) {
     </svg>
   );
 }
-
 /* ─────────────────────────────────────────────────────────────────────────────
    DrawnPath — stroke-dashoffset drawing trick
 ───────────────────────────────────────────────────────────────────────────── */
@@ -149,7 +117,6 @@ function DrawnPath({ d, estimatedLen, delay, duration, ease, color, strokeWidth,
       if (l && l > 0) setLength(l);
     }
   }, []);
-
   const animatedStyle = animate
     ? {
         strokeDasharray:  length,
@@ -160,7 +127,6 @@ function DrawnPath({ d, estimatedLen, delay, duration, ease, color, strokeWidth,
         strokeDasharray:  "none",
         strokeDashoffset: 0,
       };
-
   return (
     <path
       ref={pathRef}
