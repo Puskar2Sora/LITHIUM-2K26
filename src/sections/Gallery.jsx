@@ -215,7 +215,7 @@ export default function Gallery() {
                         className="gl-real-img"
                         draggable="false"
                         loading={isActive ? 'eager' : 'lazy'}
-                        fetchPriority={isActive ? 'high' : 'low'}
+                        fetchpriority={isActive ? 'high' : 'low'}
                         decoding="async"
                       />
                       {isActive && <div className="gl-glint" />}
@@ -277,119 +277,5 @@ export default function Gallery() {
       </div>
     </section>
   );
-}
-
-      <div className="gl-header">
-        <div className="gl-header-left">
-          <span className="gl-eyebrow">✦ Previous Year ✦</span>
-          <h2 className="gl-title">MEMORIES</h2>
-          <div className="gl-title-badge">CAPTURED MOMENTS</div>
-          
-        </div>
-        
-        <div className="gl-header-right">
-          <div className="gl-counter">
-            <span className="gl-cnum">{String(active + 1).padStart(2, '0')}</span>
-            <span className="gl-csep">/</span>
-            <span className="gl-ctot">{String(total).padStart(2, '0')}</span>
-          </div>
-          <p className="gl-sub">Relive the magic of LITHIUM 2K25</p>
-        </div>
-        
-      </div>
-
-      <div
-        className="gl-stage"
-        ref={trackRef}
-        onMouseDown={onPointerDown}
-        onMouseUp={onPointerUp}
-        onTouchStart={onPointerDown}
-        onTouchEnd={onPointerUp}
-      >
-        <div className="gl-fan">
-          
-          {PHOTOS.map((p, i) => {
-            const style = getCardStyle(i);
-            if (style.display === 'none') return null;
-            const isActive = i === active;
-            return (
-              
-              <div
-                key={i}
-                className={`gl-card ${isActive ? 'gl-card-active' : ''}`}
-                style={style}
-                onClick={() => !isActive && goTo(i)}
-              >
-                <div className="gl-polaroid" style={{ background: p.bg }}>
-                  <div className="gl-card-tag" style={{ color: p.color }}>
-                    {p.tag}
-                  </div>
-
-                  <div className="gl-photo-area" style={{ position: 'relative', overflow: 'hidden' }}>
-                    <img
-                      src={p.src}
-                      alt={p.caption}
-                      className="gl-real-img"
-                      draggable="false"
-                      loading={isActive ? 'eager' : 'lazy'}
-                      fetchPriority={isActive ? 'high' : 'low'}
-                      decoding="async"
-                      style={{
-                        position: 'absolute',
-                        top: 0, left: 0,
-                        width: '100%', height: '100%',
-                        objectFit: 'cover',
-                        zIndex: 2,
-                      }}
-                    />
-                    
-                    <div className="gl-placeholder">
-                      <span className="gl-ph-ico">📸</span>
-                      <span className="gl-ph-num" style={{ color: p.bg === '#0a0a0a' ? '#FFE600' : p.bg }}>
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                    </div>
-                    {isActive && <div className="gl-glint" />}
-                  </div>
-
-                  <div className="gl-caption-strip">
-                    <span className="gl-caption" style={{ color: p.color }}>{p.caption}</span>
-                    <span className="gl-year" style={{ color: p.color, opacity: 0.55 }}>LITHIUM {p.year}</span>
-                  </div>
-                </div>
-                <div className="gl-card-shadow" />
-              </div>
-            );
-          })}
-        </div>
-
-        <button className="gl-side-btn gl-side-l" onClick={prev_} aria-label="Previous"><span>‹</span></button>
-        <button className="gl-side-btn gl-side-r" onClick={next} aria-label="Next"><span>›</span></button>
-      </div>
-
-      <div className="gl-bottom">
-        <div className="gl-info">
-          <div className="gl-info-color" style={{ background: photo.bg }} />
-          <div className="gl-info-text">
-            <span className="gl-info-caption">{photo.caption}</span>
-            <span className="gl-info-tag">{photo.tag}</span>
-          </div>
-        </div>
-
-        <div className="gl-nav-dots">
-          {PHOTOS.map((_, i) => (
-            <button
-              key={i}
-              className={`gl-dot ${i === active ? 'gl-dot-active' : ''}`}
-              style={i === active ? { background: photo.bg, borderColor: '#0a0a0a' } : {}}
-              onClick={() => goTo(i)}
-            />
-          ))}
-        </div>
-
-      </div>
-          
-          </section>
-    
-  );
-}
+      }
+                        
