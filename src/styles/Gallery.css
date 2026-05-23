@@ -1255,7 +1255,7 @@
   }
 
   .gl-glint { display: none; }
-}
+.gl-quote{
   font-style: italic;
   color: rgba(42,24,16,0.4);
   margin: 0;
