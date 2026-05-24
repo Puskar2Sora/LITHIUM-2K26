@@ -185,9 +185,9 @@ export default function Footer() {
               THE EVENT
             </div>
             {[
-              { icon: '', lbl: 'DATE',    val: '1st June, 2026'                              },
-              { icon: '', lbl: 'TIME',    val: '2:00 PM onwards'                            },
-              { icon: '', lbl: 'VENUE',   val: 'Laban Hrad Mancha BD Auditorium, Kolkata'    },
+              { icon: '', lbl: 'DATE',    val: '17th June, 2026'                              },
+              { icon: '', lbl: 'TIME',    val: '1:00 PM onwards'                            },
+              { icon: '', lbl: 'VENUE',   val: 'Mohit Moitra Mancha, Kolkata'    },
               { icon: '', lbl: 'HOST',    val: 'Techno Bengal Institute of Technology'       },
             ].map((r, i) => (
               <div key={i} className="ft-event-row">

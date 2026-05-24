@@ -5,19 +5,19 @@ const DETAILS = [
   {
     icon: '⚑',
     label: 'Venue',
-    value: 'Laban Hrad Mancha',
-    sub: 'BD Auditorium, HCV4+HM5, BD Block\nSector 1, Bidhannagar, Kolkata – 700064',
+    value: 'Mohit Moitra Manch',
+    sub: ' Raja Manindra Rd, Tala, Paikpara, Kolkata-700037, West Bengal',
   },
   {
     icon: '◈',
     label: 'Date',
-    value: '1st June, 2026',
-    sub: 'Monday',
+    value: '17th June, 2026',
+    sub: 'Wednesday',
   },
   {
     icon: '◉',
     label: 'Time',
-    value: '2:00 PM',
+    value: '1:00 PM',
     sub: 'Doors open at 12:00 PM',
   },
 ];
@@ -148,11 +148,11 @@ const Venue = () => {
             ))}
 
             <a
-              href="https://maps.google.com/?q=Laban+Hrad+Mancha+BD+Auditorium+Bidhannagar+Kolkata"
-              target="_blank"
-              rel="noreferrer"
-              className="ryl-cta"
-            >
+             href="https://maps.app.goo.gl/ym5JoerQVnBAZKhz6"
+  target="_blank"
+  rel="noreferrer"
+  className="ryl-cta"
+>
               <span className="ryl-cta-inner">
                 <span className="ryl-cta-icon">✦</span>
                 <span className="ryl-cta-text">Obtain Directions</span>
@@ -173,26 +173,27 @@ const Venue = () => {
               </div>
 
               {/* Map frame with ornamental overlay */}
-              <div className="ryl-map-frame">
-                <iframe
-                  title="Venue Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.6776506!2d88.4041463!3d22.5938914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027ae41b153381%3A0x6ae8be3071e5d785!2sLaban%20Hrad%20Mancha%20BD%20Auditorium!5e0!3m2!1sen!2sin!4v1712160000000"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: 'block' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-                {/* Map overlay frame corners */}
-                <div className="ryl-map-overlay" />
-              </div>
+              {/* Map frame with ornamental overlay */}
+<div className="ryl-map-frame">
+  <iframe
+    title="Venue Map"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.1133163639565!2d88.3804600744876!3d22.61224327946346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89d503e06cb7b%3A0xf01fd00a505fde18!2sMohit%20Moitra%20Mancha%2C%20Tala!5e0!3m2!1sen!2sin!4v1779608023813!5m2!1sen!2sin"
+    width="100%"
+    height="100%"
+    style={{ border: 0, display: 'block' }}
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+  {/* Map overlay frame corners */}
+  <div className="ryl-map-overlay" />
+</div>
 
-              {/* Map footer */}
-              <div className="ryl-map-footer">
-                <span className="ryl-map-pin">◈</span>
-                <span>HCV4+HM5, BD Block, Sector I, Bidhannagar, Kolkata</span>
-              </div>
+{/* Map footer */}
+<div className="ryl-map-footer">
+  <span className="ryl-map-pin">◈</span>
+  <span>Raja Manindra Rd, Tala, Paikpara, Kolkata-700037</span>
+</div>
             </div>
           </div>
         </div>
