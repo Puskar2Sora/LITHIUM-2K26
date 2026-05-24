@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/Hero.css";
 import Floatchar from "../components/Floatchar";
 
-const ORNAMENTS = ["✦","◆","⚜","✦","◆","⚜","✦","◆"];
+const ORNAMENTS = ["✦", "◆", "⚜", "✦", "◆", "⚜", "✦", "◆"];
 
 export default function Hero() {
   const [visible, setVisible] = useState(false);
@@ -14,7 +14,6 @@ export default function Hero() {
 
   return (
     <section id="home" className="royal-hero">
-
       {/* Parchment dot texture */}
       <div className="rh-texture" />
 
@@ -29,7 +28,9 @@ export default function Hero() {
       {/* Ornamental floating particles */}
       <div className="rh-particles" aria-hidden="true">
         {ORNAMENTS.map((o, i) => (
-          <span key={i} className="rh-petal" style={{ '--pi': i }}>{o}</span>
+          <span key={i} className="rh-petal" style={{ "--pi": i }}>
+            {o}
+          </span>
         ))}
       </div>
 
@@ -54,26 +55,24 @@ export default function Hero() {
       />
 
       {/* ═══ MAIN GRID ═══ */}
-      <div className={`rh-inner ${visible ? 'rh-visible' : ''}`}>
-
+      <div className={`rh-inner ${visible ? "rh-visible" : ""}`}>
         {/* ── LEFT ── */}
         <div className="rh-left">
-
-          {/* [CHANGED] removed bare <br/> — spacing handled by .rh-left gap */}
-<br/>
+          <br />
           {/* Crest eyebrow */}
           <div className="rh-eyebrow">
             <span className="rh-ey-line" />
-            <span className="rh-ey-txt">⚜ Techno Bengal Institute of Technology ⚜</span>
+            <span className="rh-ey-txt">
+              ⚜ Techno Bengal Institute of Technology ⚜
+            </span>
             <span className="rh-ey-line" />
           </div>
 
           {/* Main title */}
-          {/* [CHANGED] removed bare <br/> inside flex row — was breaking layout on mobile */}
           <div className="rh-title-block">
             <div className="rh-title-year">
               <span className="rh-yr-2k">LITHIUM</span>
-              <br/>
+              <br />
               <span className="rh-yr-2k">2K</span>
               <span className="rh-yr-26">26</span>
             </div>
@@ -96,11 +95,7 @@ export default function Hero() {
           <div className="rh-cta">
             <a href="#about" className="rh-btn rh-btn-gold">
               <span className="rh-btn-icon">⚜</span>
-<<<<<<< HEAD
-              Enter INTO  the dream
-=======
               Enter Into The Dream
->>>>>>> 708186357285734bc143401fa1fdc21706f2afb7
             </a>
             <a href="#venue" className="rh-btn rh-btn-ghost">
               Event Details
@@ -124,16 +119,16 @@ export default function Hero() {
             />
           </div>
         </div>
-
       </div>
 
       {/* Bottom crest band */}
       <div className="rh-footer-band">
         <span className="rh-fb-line" />
-        <span className="rh-fb-text">✦ FRESHER'S WELCOME 2026 ✦ DREAMSCAPE ✦</span>
+        <span className="rh-fb-text">
+          ✦ FRESHER'S WELCOME 2026 ✦ DREAMSCAPE ✦
+        </span>
         <span className="rh-fb-line" />
       </div>
-
     </section>
   );
 }
