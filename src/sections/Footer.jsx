@@ -13,8 +13,8 @@ const SOCIALS = [
   { 
     icon: '/assets-optimized/icons/insta.webp', 
     label: 'Instagram', 
-    handle: '@bit_lithium2k26',      
-    href: 'https://www.instagram.com/bit_lithium2k26' 
+    handle: '@tbit_lithium2k26',      
+    href: 'https://www.instagram.com/tbit_lithium2k26' 
   },
   { 
     icon: '/assets-optimized/icons/whatsapp.webp', 

@@ -96,7 +96,11 @@ export default function Hero() {
           <div className="rh-cta">
             <a href="#about" className="rh-btn rh-btn-gold">
               <span className="rh-btn-icon">⚜</span>
+<<<<<<< HEAD
               Enter INTO  the dream
+=======
+              Enter Into The Dream
+>>>>>>> 708186357285734bc143401fa1fdc21706f2afb7
             </a>
             <a href="#venue" className="rh-btn rh-btn-ghost">
               Event Details
