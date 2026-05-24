@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="realm-container">
-       <RoyalCursor />
+      <RoyalCursor />
       {showIntro && <Intro onDone={handleIntroDone} />}
       <Navbar />
       <main>

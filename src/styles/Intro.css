@@ -36,118 +36,317 @@ html, body {
 }
 
 /* ─────────────────────────────────────────────────────
-   INTRO OVERLAY
+   CINEMATIC INTRO — Light Parchment Theme
+   Ivory × Gold × Maroon  (matches Hero palette)
 ───────────────────────────────────────────────────── */
 
-.intro {
+/* Cinzel Decorative is already imported by Hero.css — no duplicate needed */
+
+/* ── Intro tokens (mirror Hero palette) ───────────── */
+:root {
+  --ci-bg:        #FAF6EF;   /* rh-ivory */
+  --ci-parchment: #F2EAD5;   /* rh-parchment */
+  --ci-gold:      #C9973A;   /* rh-gold */
+  --ci-gold-lt:   #E8C76A;
+  --ci-maroon:    #6B1A2A;   /* rh-maroon */
+  --ci-ink:       #2A1810;   /* rh-ink */
+}
+
+/* ── Base overlay ─────────────────────────────────── */
+.ci {
   position:        fixed;
   inset:           0;
   display:         flex;
   align-items:     center;
   justify-content: center;
-  background:      var(--parchment);
+  background:      var(--ci-bg);
   z-index:         9999;
   pointer-events:  none;
   will-change:     opacity;
   overflow:        hidden;
+  /* default: no transition so phases snap correctly */
 }
 
-.intro--fading {
+/* All non-zooming phases: fully opaque */
+.ci--silent,
+.ci--reveal,
+.ci--hold { opacity: 1; }
+
+/* zooming: overlay fades out as text zooms — ONE smooth motion */
+.ci--zooming {
   opacity:    0;
-  transition: opacity 0.8s ease;
+  transition: opacity 0.85s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* Stroke draw — untouched */
-@keyframes lithium-draw {
-  to { stroke-dashoffset: 0; }
+/* ── Parchment grain ──────────────────────────────── */
+.ci-grain {
+  position:         absolute;
+  inset:            0;
+  pointer-events:   none;
+  z-index:          0;
+  opacity:          0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:  200px 200px;
+  animation:        ci-grain-shift 0.25s steps(1) infinite;
 }
 
-/* ─────────────────────────────────────────────────────
-   PARTICLE FALL
-   Usage: sprinkle <span class="particle"> elements
-   inside .intro via JS, or use .intro::before/after
-   for a pure-CSS two-particle hint.
-   Full set generated in JS — see comment at bottom.
-───────────────────────────────────────────────────── */
+@keyframes ci-grain-shift {
+  0%   { background-position:   0    0; }
+  25%  { background-position: -30px 10px; }
+  50%  { background-position:  20px -20px; }
+  75%  { background-position: -10px  30px; }
+  100% { background-position:   0    0; }
+}
 
-/* Each particle is a tiny element absolutely positioned */
-.particle {
+/* ── Soft radial vignette ─────────────────────────── */
+.ci-vignette {
   position:       absolute;
-  top:            -12px;
+  inset:          0;
+  pointer-events: none;
+  z-index:        1;
+  background:     radial-gradient(
+    ellipse 75% 65% at 50% 50%,
+    transparent 30%,
+    rgba(201, 151, 58, 0.08) 70%,
+    rgba(107, 26, 42, 0.14) 100%
+  );
+}
+
+/* ── Stage (the animated wordmark container) ──────── */
+.ci-stage {
+  position:    relative;
+  z-index:     2;
+  display:     flex;
+  align-items: center;
+  gap:         1.8rem;
+  opacity:     1;
+  transform:   scale(1);
+}
+
+/* silent: hidden, slightly small */
+.ci-stage--silent {
+  opacity:    0;
+  transform:  scale(0.94);
+  transition: none;
+}
+
+/* reveal: gentle entrance as letters appear */
+.ci-stage--reveal {
+  opacity:    1;
+  transform:  scale(1);
+  transition: transform 1s cubic-bezier(0.22, 0.8, 0.32, 1),
+              opacity   0.7s ease;
+}
+
+/* hold: steady — no jitter */
+.ci-stage--hold {
+  opacity:    1;
+  transform:  scale(1);
+  transition: none;
+}
+
+/* zooming: scale + blur animate together as overlay dissolves */
+.ci-stage--zooming {
+  opacity:    1;
+  transform:  scale(8);
+  filter:     blur(22px);
+  transition: transform 0.85s cubic-bezier(0.3, 0, 0.15, 1),
+              filter    0.85s ease-in;
+}
+
+/* ── Column: stacks accent-line / word / rule / year ── */
+.ci-column {
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  gap:             0.55rem;
+}
+
+/* ── Flanking ornaments (✶) ─────────────────────── */
+.ci-orn {
+  font-size:   1.1rem;
+  color:       var(--ci-gold);
+  opacity:     0;
+  transform:   scale(0.4);
+  transition:  opacity   0.5s ease,
+               transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.ci-orn--left  { transform-origin: right center; }
+.ci-orn--right { transform-origin: left center; }
+
+.ci-orn--visible {
+  opacity:   0.7;
+  transform: scale(1);
+}
+
+/* ── Thin top accent line ───────────────────────── */
+.ci-accent-line {
+  width:      0;
+  height:     1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--ci-gold) 20%,
+    var(--ci-maroon) 50%,
+    var(--ci-gold) 80%,
+    transparent
+  );
+  transition: width 0.7s cubic-bezier(0.22, 0.8, 0.32, 1) 0.05s;
+  opacity:    0.55;
+}
+
+.ci-accent-line--visible {
+  width: 100%;
+}
+
+/* ── Word span ────────────────────────────────────── */
+.ci-word {
+  display:        inline-flex;
+  font-family:    "Cinzel Decorative", serif;
+  font-size:      clamp(3rem, 9vw, 7rem);
+  font-weight:    700;
+  letter-spacing: 0.14em;
+  line-height:    1;
+  user-select:    none;
+  color:          var(--ci-ink);
+  white-space:    nowrap;
+  position:       relative;
+}
+
+/* Shimmer sweep across the text during hold */
+.ci-word--held::after {
+  content:    '';
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(
+    105deg,
+    transparent    35%,
+    rgba(232, 199, 106, 0.28) 50%,
+    transparent    65%
+  );
+  background-size: 200% 100%;
+  animation:  ci-shimmer 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ci-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ── Gold underline rule (draws left → right) ──────── */
+.ci-rule {
+  height:     2px;
+  width:      0;
+  background: linear-gradient(
+    to right,
+    var(--ci-maroon),
+    var(--ci-gold),
+    var(--ci-gold-lt),
+    var(--ci-gold),
+    var(--ci-maroon)
+  );
+  border-radius: 2px;
+  transition:    width 0.75s cubic-bezier(0.22, 0.8, 0.32, 1) 0.1s;
+  opacity:       0.8;
+}
+
+.ci-rule--visible {
+  width: 100%;
+}
+
+/* ── Year label ───────────────────────────────── */
+.ci-year {
+  font-family:    "Cinzel Decorative", serif;
+  font-size:      clamp(0.65rem, 1.5vw, 0.85rem);
+  font-weight:    400;
+  letter-spacing: 0.55em;
+  color:          var(--ci-maroon);
+  opacity:        0;
+  transform:      translateY(6px);
+  transition:     opacity   0.6s ease 0.25s,
+                  transform 0.6s ease 0.25s;
+  user-select:    none;
+  text-indent:    0.55em; /* compensate letter-spacing on last char */
+}
+
+.ci-year--visible {
+  opacity:   0.72;
+  transform: none;
+}
+
+/* ── Individual letters ───────────────────────────── */
+.ci-letter {
+  display:     inline-block;
+  opacity:     0;
+  transform:   translateY(22px) scale(0.84);
+  filter:      blur(8px);
+  transition:  opacity   0.6s cubic-bezier(0.22, 0.8, 0.32, 1),
+               transform 0.6s cubic-bezier(0.22, 0.8, 0.32, 1),
+               filter    0.5s ease;
+  will-change: opacity, transform, filter;
+}
+
+.ci-letter--visible {
+  opacity:   1;
+  transform: translateY(0) scale(1);
+  filter:    blur(0);
+}
+
+/* ── Ambient gold dust particles ──────────────────── */
+.ci-particle {
+  position:       absolute;
+  top:            -10px;
   border-radius:  50%;
   pointer-events: none;
   will-change:    transform, opacity;
-  animation:      particle-fall linear infinite;
+  animation:      ci-particle-fall linear infinite;
+  z-index:        1;
 }
 
-/* Charcoal dust (default) */
-.particle {
-  width:      3px;
-  height:     3px;
-  background: var(--charcoal);
-  opacity:    0.18;
-}
-
-/* Crimson accent particles */
-.particle--crimson {
-  background: var(--crimson);
+.ci-particle--dust {
   width:      2px;
   height:     2px;
-  opacity:    0.22;
+  background: var(--ci-gold);
+  opacity:    0.2;
 }
 
-/* Larger, slower parchment flecks */
-.particle--fleck {
-  width:         5px;
+.ci-particle--gold {
+  width:      3px;
+  height:     3px;
+  background: var(--ci-gold-lt);
+  opacity:    0.28;
+}
+
+.ci-particle--fleck {
+  width:         6px;
   height:        2px;
   border-radius: 1px;
-  background:    var(--charcoal-mid);
-  opacity:       0.10;
+  background:    rgba(201, 151, 58, 0.45);
+  opacity:       0.12;
 }
 
-@keyframes particle-fall {
+@keyframes ci-particle-fall {
   0% {
     transform: translateY(0) translateX(0) rotate(0deg);
     opacity:   0;
   }
   8% {
-    opacity:   var(--p-opacity, 0.18);
+    opacity: var(--p-op, 0.18);
   }
   90% {
-    opacity:   var(--p-opacity, 0.18);
+    opacity: var(--p-op, 0.18);
   }
   100% {
-    transform: translateY(110vh) translateX(var(--p-drift, 24px)) rotate(var(--p-spin, 180deg));
-    opacity:   0;
+    transform: translateY(110vh)
+               translateX(var(--p-drift, 20px))
+               rotate(var(--p-spin, 200deg));
+    opacity: 0;
   }
 }
-
-/*
-  JS snippet to generate particles inside .intro:
-
-  const intro = document.querySelector('.intro');
-  for (let i = 0; i < 38; i++) {
-    const p = document.createElement('span');
-    p.className = 'particle' + (Math.random() < 0.2
-      ? ' particle--crimson'
-      : Math.random() < 0.3 ? ' particle--fleck' : '');
-    const drift = (Math.random() - 0.5) * 80;
-    const spin  = (Math.random() - 0.5) * 360;
-    const delay = Math.random() * -14;
-    const dur   = 7 + Math.random() * 9;
-    const left  = Math.random() * 100;
-    const op    = 0.08 + Math.random() * 0.18;
-    p.style.cssText = `
-      left: ${left}%;
-      --p-drift:   ${drift}px;
-      --p-spin:    ${spin}deg;
-      --p-opacity: ${op};
-      animation-duration: ${dur}s;
-      animation-delay:    ${delay}s;
-    `;
-    intro.appendChild(p);
-  }
-*/
 
 /* ─────────────────────────────────────────────────────
    TYPOGRAPHY
