@@ -12,7 +12,7 @@ const LEADERS = [
     glowColor: 'rgba(255,230,0,0.25)',
     badgeIcon: '',
     videoSrc: '/assets/videos/director.mp4',
-    poster: '/assets/posters/director.webp',
+    poster: '/assets/posters/banner.webp',
   },
   {
     id: 'principal',
@@ -23,7 +23,7 @@ const LEADERS = [
     glowColor: 'rgba(255,45,135,0.25)',
     badgeIcon: '',
     videoSrc: '/assets/videos/principal.mp4',
-    poster: '/assets/posters/principal.webp',
+    poster: '/assets/posters/banner.webp',
   },
 ];
 
@@ -31,7 +31,6 @@ const LEADERS = [
 const VideoCard = ({ leader, index, isVisible }) => {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
-  const shouldLoad = isVisible || playing;
 
   const togglePlay = () => {
     const v = videoRef.current;
@@ -57,8 +56,9 @@ const VideoCard = ({ leader, index, isVisible }) => {
         <video
           ref={videoRef}
           className="mfl-video"
-          src={shouldLoad ? leader.videoSrc : undefined}
-          preload="none"
+          src={leader.videoSrc}
+          poster={leader.poster}
+          preload="auto"
           playsInline
           onEnded={() => setPlaying(false)}
         />
