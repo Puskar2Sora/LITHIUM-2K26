@@ -9,8 +9,8 @@ const FAQS = [
     accent: '#E8192C',
   },
   {
-    q: 'Do I need to wear a costume?',
-    a: 'Costumes are strongly encouraged but not mandatory.',
+    q: 'What Will be the Dress Code?',
+    a: 'Anything to want, which matches your vibe with Grace and Glory',
     color: '#BAE1FF',
     accent: '#00D4FF',
   },
@@ -28,7 +28,7 @@ const FAQS = [
   },
   {
     q: 'Where exactly is the venue?',
-    a: 'Laban Hrad Mancha BD Auditorium, Sector V, Salt Lake, Kolkata. The venue is easily accessible by bus and metro. Check the Venue section for the map.',
+    a: 'Mohit Moitra Mancha, Raja Manindra Road, Tala, Paikpara, Kolkata - 700037 . The venue is easily accessible by bus and metro. Check the Venue section for the map. From Belgachia Metro Station Its only 5 min of Walking Distance.',
     color: '#E8BAFF',
     accent: '#FF2D87',
   },
