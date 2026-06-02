@@ -15,6 +15,7 @@ const Venue = lazy(() => import('./sections/Venue'));
 const MessageFromLeaders = lazy(() => import('./sections/Messagefromleaders'));
 const FAQ = lazy(() => import('./sections/FAQ'));
 const Footer = lazy(() => import('./sections/Footer'));
+const Convenors = lazy(() => import('./components/Convenors.jsx'));
 
 function shouldPlayIntro() {
   if (typeof window === 'undefined') return false;
@@ -62,6 +63,9 @@ function App() {
         </LazySection>
         <LazySection fallback={sectionFallback} minHeight={760}>
           <Venue />
+        </LazySection>
+        <LazySection fallback={sectionFallback} minHeight={720}>
+          <Convenors />
         </LazySection>
         <LazySection fallback={sectionFallback} minHeight={720}>
           <MessageFromLeaders />
