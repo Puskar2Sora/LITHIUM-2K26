@@ -6,7 +6,7 @@ const CONVENOR = {
   role: 'CONVENOR',
   name: 'PROF. Gargi Dutta',
   dept: '',
-  image: '/assets/posters/banner.webp',
+  image: '/assets/posters/gd.webp',
 };
 
 const JOINT_COORDINATORS = [
@@ -15,14 +15,14 @@ const JOINT_COORDINATORS = [
     role: 'JOINT COORDINATOR',
     name: 'PROF. Sreyoshi Mitra',
     dept: '',
-    image: '/assets/posters/banner.webp',
+    image: '/assets/posters/sm.webp',
   },
   {
     id: 'jc2',
     role: 'JOINT COORDINATOR',
     name: 'PROF. Dwaipayan Chakraborty',
     dept: '',
-    image: '/assets/posters/banner.webp',
+    image: '/assets/posters/ds.webp',
   },
 ];
 
