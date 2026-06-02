@@ -28,15 +28,29 @@ const LEADERS = [
 ];
 
 /* ─── Video Card ─────────────────────────────────────────── */
-const VideoCard = ({ leader, index, isVisible }) => {
+const VideoCard = ({ leader, index, isVisible, playingId, setPlayingId }) => {
   const videoRef = useRef(null);
-  const [playing, setPlaying] = useState(false);
+  const playing = playingId === leader.id;
+
+  // When another video starts playing, pause this one
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (!playing) {
+      v.pause();
+    }
+  }, [playing]);
 
   const togglePlay = () => {
     const v = videoRef.current;
     if (!v) return;
-    if (playing) { v.pause(); setPlaying(false); }
-    else         { v.play();  setPlaying(true);  }
+    if (playing) {
+      v.pause();
+      setPlayingId(null);
+    } else {
+      v.play();
+      setPlayingId(leader.id);
+    }
   };
 
   return (
@@ -48,11 +62,8 @@ const VideoCard = ({ leader, index, isVisible }) => {
         animationDelay: `${index * 0.2}s`,
       }}
     >
-      {/* ── Top label bar ── */}
-     
       {/* ── Video frame ── */}
       <div className="mfl-video-wrap">
-        {/* Plain video — NO filter, plays with sound */}
         <video
           ref={videoRef}
           className="mfl-video"
@@ -60,7 +71,7 @@ const VideoCard = ({ leader, index, isVisible }) => {
           poster={leader.poster}
           preload="auto"
           playsInline
-          onEnded={() => setPlaying(false)}
+          onEnded={() => setPlayingId(null)}
         />
 
         {/* Corner brackets */}
@@ -73,7 +84,6 @@ const VideoCard = ({ leader, index, isVisible }) => {
         {!playing && (
           <div className="mfl-video-overlay" onClick={togglePlay}>
             <div className="mfl-play-btn">
-              {/* Triangle SVG play icon */}
               <svg className="mfl-play-svg" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                 <polygon points="10,6 30,18 10,30" fill="#000" />
               </svg>
@@ -85,7 +95,6 @@ const VideoCard = ({ leader, index, isVisible }) => {
         {/* Small pause pill — bottom-right, only while playing */}
         {playing && (
           <button className="mfl-pause-fab" onClick={togglePlay} aria-label="Pause video">
-            {/* Two-bar pause SVG */}
             <svg className="mfl-pause-svg" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
               <rect x="8"  y="6" width="8" height="24" rx="2" fill="#000" />
               <rect x="20" y="6" width="8" height="24" rx="2" fill="#000" />
@@ -110,6 +119,7 @@ const VideoCard = ({ leader, index, isVisible }) => {
 const MessageFromLeaders = () => {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [playingId, setPlayingId] = useState(null); // only one video plays at a time
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -124,8 +134,6 @@ const MessageFromLeaders = () => {
     <section id="leaders" className="mfl-section" ref={sectionRef}>
       <div className="mfl-slash-accent" />
 
-      {/* Floatchar — desktop size */}
-     
       <br />
 
       <div className={`mfl-inner ${visible ? 'mfl-inner--visible' : ''}`}>
@@ -146,7 +154,14 @@ const MessageFromLeaders = () => {
         {/* ── Video Cards ── */}
         <div className="mfl-cards-grid">
           {LEADERS.map((leader, i) => (
-            <VideoCard key={leader.id} leader={leader} index={i} isVisible={visible} />
+            <VideoCard
+              key={leader.id}
+              leader={leader}
+              index={i}
+              isVisible={visible}
+              playingId={playingId}
+              setPlayingId={setPlayingId}
+            />
           ))}
         </div>
       </div>
