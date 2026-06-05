@@ -58,19 +58,20 @@ export default function Hero() {
       <div className={`rh-inner ${visible ? "rh-visible" : ""}`}>
         {/* ── LEFT ── */}
         <div className="rh-left">
-          <br />
-          {/* Crest eyebrow */}
-          <div className="rh-eyebrow">
-            <span className="rh-ey-line" />
-            <span className="rh-ey-txt">
-              ⚜ Techno Bengal  Institute of Technology ⚜
-            </span>
-        <span className="rh-fb-line" />
-
-          </div>
-             
-  <div className="ab-title-kalo">Formerly Known as Bengal Institute Of Technology</div>
         
+          {/* Crest eyebrow */}
+         <div className="rh-left">
+  <br />
+  {/* Crest eyebrow */}
+  <div className="rh-eyebrow">
+    <span className="rh-ey-txt">
+      ⚜ Techno Bengal Institute of Technology ⚜
+    </span>
+   <span className="ab-title-kalo">
+  Formerly Known as <strong>Bengal Institute Of Technology</strong>
+</span>
+  </div>
+</div>
           {/* Main title */}
           <div className="rh-title-block">
             <div className="rh-title-year">
@@ -87,7 +88,7 @@ export default function Hero() {
           </div>
 
           {/* Theme */}
-          <div className="rh-theme-block">
+          <div>
             <span className="rh-theme-label">✦ Royal Theme ✦</span>
             <h2 className="rh-theme-name">DREAMSCAPE</h2>
           </div>

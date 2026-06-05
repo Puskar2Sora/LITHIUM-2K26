@@ -19,7 +19,9 @@ const navLinks = [
   { name: 'Gallery', href: '#gallery' },
   {name : 'Groomers', href: '#winners'},
   {name : 'Venue', href:'#venue'},
-  {name : 'FAQ', href:'#faq'}
+  {name : 'Team Lithium', href:'#lithiumteam'},
+  {name : 'FAQ', href:'#faq'},
+  
 ];
 
 const NavIcon = ({ path }) => (

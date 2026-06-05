@@ -12,17 +12,15 @@ export const TEAM_DATA = [
       { name: 'Surajit Sadhukhan',        role: '',       image: '/assets/team/sadhu.webp' },
       { name: 'Sankalan Pal',      role: '',       image: '/assets/team/sank.webp' },
       { name: 'Olivia Chowdhury',     role: '',       image: '/assets/team/olivia.webp' },
-      { name: 'Sannoy Jana',   role: '',  image: '/assets/team/sannoy.webp' },
       { name: 'Sakshi Verma',   role: '',  image: '/assets/team/saksi.webp' },
       { name: 'Sagnik Roy Chowdhury',        role: '',       image: '/assets/team/saguda.webp'},
       { name: 'Parthib Mondal',      role: '',       image: '/assets/team/parthib.webp'},
       { name: 'Anwesha Dey',     role: '',       image: '/assets/team/aneswa.webp' },
       { name: 'Tanisha Banerjee',   role: '',  image: '/assets/team/tanisha.webp' },
-      { name: 'Nargis Sultana',        role: '',       image: '/assets/team/nargis.webp' },
       { name: 'Tanisa Naskar',      role: '',       image: '/assets/team/tanisa.webp' },
       { name: 'Surasree Majumder',        role: '',       image: '/assets/team/sura.webp'},
       { name: 'Pameli Saha',        role: '',       image: '/assets/team/pameli.webp' },
-      { name: 'Puskar Nath',        role: '',       image: '/assets/team/rohan.webp' },   
+      { name: 'Puskar Nath',        role: '',       image: '/assets/team/puskar.webp' },   
     ],
   },
 ];
@@ -133,14 +131,6 @@ const LithiumTeam = () => {
           <DeptBlock key={i} dept={dept} />
         ))}
 
-        {/* Footer count */}
-        <div className="lt-footer">
-          <div className="lt-count-badge">
-            <span className="lt-count-dot" />
-            <span>{totalMembers} members · Working for months</span>
-            <span className="lt-count-dot" />
-          </div>
-        </div>
 
         <OrnamentDivider />
       </div>

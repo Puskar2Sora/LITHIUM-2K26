@@ -25,8 +25,8 @@ const SOCIALS = [
   { 
     icon: '/assets-optimized/icons/gmail.webp', 
     label: 'Email',      
-    handle: 'boitkolkata@gmail.com',   
-    href: 'mailto:boitkolkata@gmail.com' 
+    handle: 'lithium@bitcollege.in',   
+    href: 'mailto:lithium@bitcollege.in' 
   },
   { 
     icon: '/assets-optimized/icons/facebook.webp', 
