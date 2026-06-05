@@ -130,14 +130,15 @@ export default function About() {
   </h2>
   <div className="ab-title-sub">LITHIUM 2K26</div>
 </div>
-          {/* Animated text paragraphs */}
           <div className="ab-text-block">
             <p className="ab-para ab-p1" style={{ '--di': 0 }}>
   <span className="ab-drop-cap">L</span>
-  ITHIUM is the premier flagship induction of <strong>Techno Bengal Institute of Technology</strong>— 
-  a grand ceremonial initiation where the brilliance of a new generation meets the seasoned legacy of our institution. It is a night designed to dissolve the boundaries of reality, 
-  fostering a spirit of unity through the lens of boundless creativity and electric celebration.
-In this hallowed space, we do not merely welcome the future; we crown it.</p>
+  ithium marks the beginning of an exciting new chapter for the newest members of <strong>  Techno Bengal Institute of Technology </strong> 
+  family. More than just a Freshers' Welcome, Lithium is a celebration of dreams, talent, friendship, and the vibrant spirit of college life.
+Lithium aims to provide first-year students with a memorable introduction to campus culture, helping them connect with seniors, faculty members.
+The event will feature spectacular cultural performances, music, dance, entertainment segments, interactive activities, and inspiring moments that showcase the creativity and unity of the BIT community.
+Lithium has always been one of the most awaited celebrations at BIT, bringing together students from different departments to create unforgettable memories and strengthen the bonds that make our institution a family.
+  </p>
           </div>
         </div>
 

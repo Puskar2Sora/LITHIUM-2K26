@@ -4,33 +4,33 @@ import '../styles/FAQ.css';
 const FAQS = [
   {
     q: 'Who can attend LITHIUM 2K26?',
-    a: 'Any student of Techno Bengal Institute of Technology can attend.',
+    a: 'Student from any College  can attend.',
     color: '#FFB3BA',
     accent: '#E8192C',
   },
   {
-    q: 'What Will be the Dress Code?',
-    a: 'Anything to want, which matches your vibe with Grace and Glory',
-    color: '#BAE1FF',
-    accent: '#00D4FF',
-  },
-  {
     q: 'Is there a registration fee?',
-    a: 'Entry to the main event is free for all TBIT students.',
+    a: 'Entry to the main event is free for all.',
     color: '#BAFFC9',
     accent: '#00FF88',
   },
   {
-    q: 'How do I register for in any event?',
-    a: 'Only in one event 1st years can pariticipate i.e "TALENT HUNT",Registration links will be shared on our official Instagram page and WhatsApp group. Stay tuned for updates!',
-    color: '#FFE4BA',
-    accent: '#FF9500',
+    q: 'Why should you attend?',
+    a: ' Meet your batchmates and make new friends. Experience the first major event of your college journey. Enjoy exciting performances, music, dance and entertainment. Create unforgettable memories and capture amazing moments. Interact with seniors and the college community. Feel welcomed and become a part of the TBIT family. ',
+    color: '#8c26bf',
+    accent: '#edcc0f',
   },
   {
-    q: 'Where exactly is the venue?',
-    a: 'Mohit Moitra Mancha, Raja Manindra Road, Tala, Paikpara, Kolkata - 700037 . The venue is easily accessible by bus and metro. Check the Venue section for the map. From Belgachia Metro Station Its only 5 min of Walking Distance.',
-    color: '#E8BAFF',
-    accent: '#FF2D87',
+    q: 'How Can I stay Updated about Lithium 2K26?',
+    a: ' Follow the official Instagram & Facebook page and WhatsApp groups for announcements, schedules and event updates. ',
+    color: '#d7780c',
+    accent: '#ec0404',
+  },
+  {
+    q: 'What time should I arrive at the Venue?',
+    a: 'Everyone are requested to arrive at least 30 minutes before the event starts to complete entry formalities and find their seats.',
+    color: '#7f1210',
+    accent: '#e6aa7c',
   },
 ];
 

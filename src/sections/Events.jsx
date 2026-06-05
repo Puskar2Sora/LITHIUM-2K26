@@ -128,7 +128,6 @@ const Events = () => (
           <h2 className="royal-title-1">EVENT</h2>
           <h2 className="royal-title-2">HIGHLIGHTS</h2>
         </div>
-        <span className="royal-badge">Start Vibing</span>
       </div>
 
       {/* ── Ornament divider ── */}

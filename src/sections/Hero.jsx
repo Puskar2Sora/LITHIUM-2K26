@@ -38,7 +38,7 @@ export default function Hero() {
       <Floatchar
         src="/assets/chars/techno.png"
         alt="Techno"
-        size={55}
+        size={60}
         bottom="86%"
         right="25%"
         animation="none"
@@ -63,18 +63,19 @@ export default function Hero() {
           <div className="rh-eyebrow">
             <span className="rh-ey-line" />
             <span className="rh-ey-txt">
-              ⚜ Techno Bengal Institute of Technology ⚜
+              ⚜ Techno Bengal  Institute of Technology ⚜
             </span>
-            <span className="rh-ey-line" />
-          </div>
+        <span className="rh-fb-line" />
 
+          </div>
+             
+  <div className="ab-title-kalo">Formerly Known as Bengal Institute Of Technology</div>
+        
           {/* Main title */}
           <div className="rh-title-block">
             <div className="rh-title-year">
               <span className="rh-yr-2k">LITHIUM</span>
-              <br />
-              <span className="rh-yr-2k">2K</span>
-              <span className="rh-yr-26">26</span>
+              <span className="rh-yr-26">2K26</span>
             </div>
           </div>
 
@@ -97,7 +98,7 @@ export default function Hero() {
               <span className="rh-btn-icon">⚜</span>
               Enter Into The Dream
             </a>
-            <a href="#venue" className="rh-btn rh-btn-ghost">
+            <a href="#events" className="rh-btn rh-btn-ghost">
               Event Details
             </a>
           </div>

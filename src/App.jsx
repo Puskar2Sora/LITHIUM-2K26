@@ -16,6 +16,7 @@ const MessageFromLeaders = lazy(() => import('./sections/Messagefromleaders'));
 const FAQ = lazy(() => import('./sections/FAQ'));
 const Footer = lazy(() => import('./sections/Footer'));
 const Convenors = lazy(() => import('./components/Convenors.jsx'));
+const Team = lazy(() => import('./sections/LithiumTeam'));
 
 function shouldPlayIntro() {
   if (typeof window === 'undefined') return false;
@@ -31,7 +32,7 @@ let _introPlayedThisSession = false;
 
 function App() {
    useEffect(() => {
-    console.log("%c✦ PUSKAR NATH'S DREAM ✦", 
+    console.log("%c✦ PUSKAR NATH ✦", 
       "color: #e6bc34be; font-size: 20px; font-weight: bold;");
   }, []);
   const [showIntro, setShowIntro] = useState(() => shouldPlayIntro());
@@ -58,17 +59,21 @@ function App() {
         <LazySection fallback={sectionFallback} minHeight={720}>
           <Gallery />
         </LazySection>
+         <LazySection fallback={sectionFallback} minHeight={720}>
+          <Convenors />
+        </LazySection>
+       
         <LazySection fallback={sectionFallback} minHeight={760}>
           <Winners />
         </LazySection>
-        <LazySection fallback={sectionFallback} minHeight={760}>
-          <Venue />
-        </LazySection>
-        <LazySection fallback={sectionFallback} minHeight={720}>
-          <Convenors />
-        </LazySection>
         <LazySection fallback={sectionFallback} minHeight={720}>
           <MessageFromLeaders />
+        </LazySection>
+          <LazySection fallback={sectionFallback} minHeight={760}>
+          <Venue />
+        </LazySection>
+                 <LazySection fallback={sectionFallback} minHeight={720}>
+          <Team />
         </LazySection>
       </main>
       <LazySection fallback={sectionFallback} minHeight={560}>

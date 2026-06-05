@@ -1,0 +1,166 @@
+/* ════════════════════════════════════════════════════════
+   DREAMSCAPE — Lithium Team Gallery
+   Warm Golden Ivory · Small Portrait Frames · Royal Grid
+════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+.lt-section {
+  --gold-1:      #FFE082;
+  --gold-2:      #D4A843;
+  --gold-3:      #B8860B;
+  --gold-4:      #9A6F0A;
+  --gold-5:      #7A5000;
+  --text-deep:   #3D2800;
+  --text-mid:    #9A7020;
+  --shadow-warm: rgba(150,100,0,0.1);
+
+  position: relative;
+  background: linear-gradient(160deg, #FDF6E3 0%, #F9EDCC 35%, #F4E4B4 65%, #F8EED0 100%);
+  padding: 100px 24px 90px;
+  overflow: hidden;
+  font-family: 'Cinzel', serif;
+}
+.lt-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%,  rgba(212,168,67,0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 5% 80%,  rgba(184,134,11,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 95% 85%, rgba(184,134,11,0.07) 0%, transparent 55%);
+  pointer-events: none; z-index: 0;
+}
+
+.lt-section--visible .lt-inner { opacity: 1; transform: translateY(0); }
+
+.lt-inner {
+  position: relative; z-index: 2;
+  max-width: 1040px; margin: 0 auto;
+  opacity: 0; transform: translateY(40px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+
+/* ── Header ── */
+.lt-header { text-align: center; margin-bottom: 56px; }
+
+.lt-eyebrow {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  font-size: 8px; font-weight: 700; letter-spacing: .52em;
+  color: var(--gold-4); text-transform: uppercase; margin-bottom: 18px;
+}
+.lt-eyebrow-rule { flex: 1; max-width: 68px; height: 1px; }
+.lt-eyebrow-rule:first-child { background: linear-gradient(90deg, transparent, var(--gold-3)); }
+.lt-eyebrow-rule:last-child  { background: linear-gradient(90deg, var(--gold-3), transparent); }
+
+.lt-dot { width: 4px; height: 4px; background: #C8962A; border-radius: 50%; animation: ltBlink 1.8s step-end infinite; }
+.lt-dot:last-child { animation-delay: .9s; }
+@keyframes ltBlink { 0%,100%{opacity:1} 50%{opacity:.15} }
+
+.lt-crown { width: 46px; height: 26px; display: block; margin: 0 auto 14px; }
+
+.lt-title { display: flex; flex-direction: column; align-items: center; gap: 7px; margin: 0 0 24px; }
+
+.lt-title-text {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.4rem, 7vw, 5rem); font-weight: 900;
+  background: linear-gradient(175deg, #C8962A 0%, #8B5E04 25%, #D4A843 50%, #8B5E04 75%, #C8962A 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  background-size: 100% 300%; display: block;
+  animation: ltGold 7s ease-in-out infinite;
+}
+@keyframes ltGold { 0%{background-position:50% 0%} 50%{background-position:50% 100%} 100%{background-position:50% 0%} }
+
+.lt-title-sub {
+  font-family: 'Cinzel', serif; font-size: clamp(.65rem, 1.6vw, .88rem); font-weight: 600;
+  color: var(--text-mid); letter-spacing: .28em; text-transform: uppercase; display: block;
+}
+
+/* ── Ornament ── */
+.lt-ornament { display: flex; align-items: center; max-width: 380px; margin: 22px auto 0; }
+.lt-ornament-line { flex: 1; height: 1px; opacity: .5; }
+.lt-ornament-line:first-child { background: linear-gradient(90deg, transparent, var(--gold-3), var(--gold-2)); }
+.lt-ornament-line:last-child  { background: linear-gradient(90deg, var(--gold-2), var(--gold-3), transparent); }
+.lt-ornament-diamond { width: 7px; height: 7px; background: var(--gold-2); transform: rotate(45deg); margin: 0 10px; flex-shrink: 0; }
+.lt-ornament-pip     { width: 3px; height: 3px; background: var(--gold-3); transform: rotate(45deg); margin: 0 5px; flex-shrink: 0; }
+
+/* ── Department block ── */
+.lt-dept { margin-bottom: 44px; }
+
+.lt-dept-label {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 9px; font-weight: 700; letter-spacing: .42em;
+  color: var(--gold-4); text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.lt-dept-rule { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(184,134,11,.3), transparent); }
+
+/* ── Grid ── */
+.lt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 16px; }
+
+/* ── Member Card ── */
+.lt-card {
+  position: relative; text-align: center; overflow: hidden;
+  background: linear-gradient(170deg, #FFFDF5 0%, #FDF5DC 55%, #F9EEC8 100%);
+  border: 1px solid rgba(184,134,11,.2); border-top: 2px solid rgba(212,168,67,.45);
+  box-shadow: 0 2px 0 rgba(255,245,200,.65) inset, 0 4px 18px var(--shadow-warm), 0 1px 0 rgba(255,255,255,.85) inset;
+  padding: 14px 10px 12px;
+  transition: transform .3s, box-shadow .35s;
+}
+.lt-card::before {
+  content: ''; position: absolute; top: 0; left: 8%; right: 8%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,235,150,.85), rgba(212,168,67,.6), rgba(255,235,150,.85), transparent);
+  z-index: 2;
+}
+.lt-card:hover { transform: translateY(-5px); box-shadow: 0 0 0 1px rgba(212,168,67,.2), 0 10px 28px rgba(150,100,0,.16), 0 2px 0 rgba(255,245,200,.75) inset; }
+.lt-card:hover .lt-bar { transform: scaleX(1); }
+.lt-card:hover .lt-corner { border-color: rgba(212,168,67,.75); }
+
+.lt-corner { position: absolute; width: 10px; height: 10px; border-color: rgba(184,134,11,.35); border-style: solid; transition: border-color .3s; }
+.lt-corner--tl { top: 6px; left: 6px; border-width: 1.5px 0 0 1.5px; }
+.lt-corner--tr { top: 6px; right: 6px; border-width: 1.5px 1.5px 0 0; }
+
+/* ── Photo frame ── */
+.lt-photo-wrap { display: flex; justify-content: center; margin-bottom: 10px; }
+.lt-photo-frame {
+  width: 72px; height: 88px; overflow: hidden; position: relative;
+  border: 1px solid rgba(184,134,11,.35);
+  box-shadow: 0 0 0 2px rgba(255,248,210,.75), 0 3px 10px rgba(150,100,0,.14), 0 0 0 3px rgba(184,134,11,.1);
+  flex-shrink: 0;
+}
+.lt-photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .45s; }
+.lt-card:hover .lt-photo { transform: scale(1.06); }
+.lt-initials {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, #F9EDCC 0%, #F0DC96 100%);
+  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
+  color: rgba(184,134,11,.55);
+}
+
+/* ── Info ── */
+.lt-name { font-family: 'Cinzel', serif; font-size: 10.5px; font-weight: 700; color: var(--text-deep); letter-spacing: .04em; line-height: 1.3; margin-bottom: 3px; }
+.lt-role { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 11px; color: var(--text-mid); line-height: 1.3; }
+
+.lt-bar {
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--gold-3), var(--gold-1), var(--gold-3), transparent);
+  transform: scaleX(0); transform-origin: center;
+  transition: transform .45s cubic-bezier(.34,1.2,.64,1);
+  margin-top: 10px;
+}
+
+/* ── Footer badge ── */
+.lt-footer { text-align: center; margin-top: 14px; margin-bottom: 30px; }
+.lt-count-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Cinzel', serif; font-size: 8px; font-weight: 700;
+  letter-spacing: .42em; color: var(--gold-4); text-transform: uppercase;
+  border: 1px solid rgba(184,134,11,.28); padding: 9px 22px;
+  background: linear-gradient(90deg, rgba(253,245,220,0), rgba(253,245,220,.7), rgba(253,245,220,0));
+}
+.lt-count-dot { width: 3px; height: 3px; background: #C8962A; transform: rotate(45deg); flex-shrink: 0; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .lt-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
+  .lt-section { padding: 72px 14px 60px; }
+}
