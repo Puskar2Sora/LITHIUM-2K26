@@ -119,8 +119,7 @@ const LithiumTeam = () => {
 
 
           <div className="lt-title">
-            <span className="lt-title-text">The Team</span>
-            <span className="lt-title-sub">Months of dedication · One dream</span>
+            <span className="lt-title-text">Team LITHIUM</span>
           </div>
 
           <OrnamentDivider />
