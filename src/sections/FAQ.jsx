@@ -4,7 +4,7 @@ import '../styles/FAQ.css';
 const FAQS = [
   {
     q: 'Who can attend LITHIUM 2K26?',
-    a: 'Student from any College  can attend.',
+    a: 'LITHIUM 2K26 is open to everyone!',
     color: '#FFB3BA',
     accent: '#E8192C',
   },
