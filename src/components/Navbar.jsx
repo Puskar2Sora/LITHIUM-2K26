@@ -17,9 +17,9 @@ const navLinks = [
   { name: 'About',    href: '#about',    iconKey: 'About' },
   { name: 'Events',   href: '#events',   iconKey: 'Events' },
   { name: 'Gallery',  href: '#gallery',  iconKey: 'Gallery' },
-  { name: 'Groomers', href: '#winners',  iconKey: 'Groomers' }, // Kept #winners anchor as per your setup
+  { name: 'Groomers', href: '#winners',  iconKey: 'Groomers' }, 
   { name: 'Venue',    href: '#venue',    iconKey: 'Venue' },
-  { name: 'Team',     href: '#team',     iconKey: 'Team' },     // Fixed to match icon key
+  { name: 'Team',     href: '#team',     iconKey: 'Team' },     
   { name: 'FAQ',      href: '#faq',      iconKey: 'FAQ' }
 ];
 
